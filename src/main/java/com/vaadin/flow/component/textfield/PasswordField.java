@@ -337,7 +337,7 @@ public class PasswordField extends GeneratedVaadinPasswordField<PasswordField>
     /**
      * When set to <code>true</code>, user is prevented from typing a value that
      * conflicts with the given {@code pattern}.
-     * 
+     *
      * @return the {@code preventInvalidInput} property from the webcomponent
      */
     public boolean isPreventInvalidInput() {
@@ -392,13 +392,34 @@ public class PasswordField extends GeneratedVaadinPasswordField<PasswordField>
     /**
      * Set to <code>false</code> to hide the eye icon which toggles the password
      * visibility.
-     * 
+     *
      * @param revealButtonVisible
      *            <code>true</code> to set the button visible,
      *            <code>false</code> otherwise
      */
     public void setRevealButtonVisible(boolean revealButtonVisible) {
         setRevealButtonHidden(!revealButtonVisible);
+    }
+
+    /**
+     * Checks whether the password is currently visible.
+     *
+     * @return <code>true</code> if the password is visible, <code>false</code>
+     *         otherwise
+     */
+    public boolean isPasswordVisible() {
+      return getElement().hasAttribute("password-visible");
+    }
+
+    /**
+     * Set to <code>true</code> to show the password in clear text, or set to
+     * <code>false</code> to hide the password.
+     *
+     * @param passwordVisible <code>true</code> to show the password,
+     *            <code>false</code> to hide
+     */
+    public void setPasswordVisible(boolean passwordVisible) {
+      getElement().callFunction("_setPasswordVisible", passwordVisible);
     }
 
     @Override
